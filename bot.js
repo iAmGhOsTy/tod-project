@@ -1,0 +1,46 @@
+const { Client, Collection, Intents, WebhookClient } = require("discord.js");
+const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/977787105243701338/wCFXoqfBgnwpbcoReg1HgCr38MSspArgXZb_twirIqaCFukR84ntjHutSEppMonDY7OK' });
+// const { Database } = require("quickmongo");
+const { readdirSync } = require("fs");
+require('dotenv').config();
+const client = new Client({
+   
+   intents: [Intents.FLAGS.GUILDS, Intents.
+FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
+    allowedMentions: {
+        parse: ["everyone", "roles", "users"],
+        repliedUser: true
+    },
+    partials: ["CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION", "USER"]
+
+});
+module.exports = client;
+
+//TOPGG INTEGRATION
+const Topgg = require("@top-gg/sdk")
+client.topgg = new Topgg.Api(process.env.topggtoken);
+
+client.commands = new Collection();
+client.slashCommands = new Collection();
+client.config = require("./config.json");
+// client.db = new Database(client.config.mongourl);
+client.owner = client.config.ownerID;
+client.prefix = client.config.prefix;
+client.embedColor = client.config.embedColor;
+client.aliases = new Collection();
+client.commands = new Collection();
+client.categories = readdirSync("./commands/");
+client.logger = require("./utils/logger.js");
+
+
+require("./handler/Client")(client);
+
+client.on('interactionCreate', interaction => {
+	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
+});
+
+client.on('rateLimit', data => webhookClient.send(`\`\`\`js\nTimeout for: ${data.timeout}\nLimit: ${data.limit}\nMethods: ${data.method}\nPath: ${data.path}\nRoute: ${data.route}\nGlobal: ${data.global}\`\`\``)
+              );
+client.login(process.env.DISCORD_TOKEN);
+
+

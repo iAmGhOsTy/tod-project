@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@top-gg/sdk": "^3.1.3",
+    "chalk": "^4.1.2",
+    "discord-hybrid-sharding": "^1.4.3",
+    "discord.js": "^13.5.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.11.15",
+    "node-superfetch": "^0.2.3",
+    "path": "^0.12.7",
+    "pm2": "^5.2.0",
+    "quickmongo": "^3.0.2",
+    "systeminformation": "^5.8.0"
+  },
+  "name": "truth-or-dare-remake",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js"
+  },
+  "author": "GHOSTY",
+  "license": "ISC",
+  "description": ""
+}
