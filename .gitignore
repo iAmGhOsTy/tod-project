@@ -53,3 +53,6 @@ node_modules
 # Environment Variables
 .env
 
+
+#private files
+ truth-or-dare REMAKE.zip
