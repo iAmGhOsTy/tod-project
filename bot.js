@@ -11,6 +11,23 @@ FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
         parse: ["everyone", "roles", "users"],
         repliedUser: true
     },
+    /**  DEPRICATED
+    // messageCacheMaxSize: 10,
+    // messageCacheLifetime: 30 * 60,
+    // messageSweepInterval: 5 * 60,
+    */
+   
+    // sweepers: {
+	// 	messages: {
+	// 		maximumSize: 200,
+	// 		interval: minutes(2),
+	// 		lifetime: minutes(5)
+	// 	},
+	// 	threads: {
+	// 		interval: minutes(5),
+	// 		keepOverLimit: (/* ... */) => { /* ... */ }
+	// 	}
+	// },
     partials: ["CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION", "USER"]
 
 });
