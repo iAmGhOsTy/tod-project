@@ -1,4 +1,4 @@
-const { Client } = require("discord.js");const chalk = require("chalk");
+const { Client } = require("discord.js");
 const { readdirSync } = require("fs");
 
 
