@@ -1,6 +1,4 @@
 const { Client } = require("discord.js");const chalk = require("chalk");
-const array = [];
-// const mongoose = require('mongoose');
 const { readdirSync } = require("fs");
 
 
@@ -11,31 +9,6 @@ const { readdirSync } = require("fs");
  */
 module.exports = async (client) => {
 
-    // /**
-    //  * Mongodb connection
-    //  */
-    
-    // const dbOptions = {
-    //   useNewUrlParser: true,
-    //   autoIndex: false,
-    //   poolSize: 5,
-    //   connectTimeoutMS: 10000,
-    //   family: 4,
-    //   useUnifiedTopology: true,
-    // };
-    //   mongoose.connect(client.config.mongourl, dbOptions);
-    //   mongoose.set("useFindAndModify", false);
-    //   mongoose.Promise = global.Promise;
-    //     mongoose.connection.on('connected', () => {
-    //         client.logger.log('[DB] DATABASE CONNECTED', "ready");
-    //         });
-    //     mongoose.connection.on('err', (err) => {
-    //             console.log(`Mongoose connection error: \n ${err.stack}`, "error");
-    //         });
-    //     mongoose.connection.on('disconnected', () => {
-    //             console.log('Mongoose disconnected');
-    //         });
-        
     /**
      * Error Handler
      */

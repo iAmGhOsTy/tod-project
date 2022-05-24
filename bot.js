@@ -1,6 +1,5 @@
 const { Client, Collection, Intents, WebhookClient } = require("discord.js");
 const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/977787105243701338/wCFXoqfBgnwpbcoReg1HgCr38MSspArgXZb_twirIqaCFukR84ntjHutSEppMonDY7OK' });
-// const { Database } = require("quickmongo");
 const { readdirSync } = require("fs");
 require('dotenv').config();
 const client = new Client({
@@ -40,7 +39,6 @@ client.topgg = new Topgg.Api(process.env.topggtoken);
 client.commands = new Collection();
 client.slashCommands = new Collection();
 client.config = require("./config.json");
-// client.db = new Database(client.config.mongourl);
 client.owner = client.config.ownerID;
 client.prefix = client.config.prefix;
 client.embedColor = client.config.embedColor;
