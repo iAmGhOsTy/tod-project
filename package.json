@@ -9,11 +9,9 @@
     "fs": "^0.0.1-security",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.11.15",
     "node-superfetch": "^0.2.3",
     "path": "^0.12.7",
     "pm2": "^5.2.0",
-    "quickmongo": "^3.0.2",
     "systeminformation": "^5.8.0"
   },
   "name": "truth-or-dare-remake",
