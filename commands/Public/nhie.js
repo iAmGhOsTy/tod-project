@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const nhie = require('../../raw/nhie.json');
 module.exports = {
     name: "neverhaveiever",
     category: "Public",
