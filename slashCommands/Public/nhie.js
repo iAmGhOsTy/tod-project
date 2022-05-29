@@ -54,7 +54,7 @@ module.exports = {
             embeds: [new MessageEmbed()
             .setAuthor("Never have I-", client.user.displayAvatarURL())
             .setDescription(`** Never have I ever ${nhies.item[Math.floor(Math.random() * nhies.item.length)]}**`)
-            .setFooter("Requested by " + interaction.member.user.username)
+            .setFooter(`Requested by :${interaction.member.user.username} || Type: ${nhies.type}`)
             .setColor(client.embedColor)]
         });
         
