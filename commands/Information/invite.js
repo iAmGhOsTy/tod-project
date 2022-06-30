@@ -5,7 +5,7 @@ module.exports = {
     name: "invite",
     category: "Information",
     aliases: [ "addme" ],
-    description: "invite Dreamer",
+    description: "invite me",
     args: false,
     usage: "",
     permission: [],
