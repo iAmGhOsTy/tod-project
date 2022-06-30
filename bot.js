@@ -54,7 +54,13 @@ client.on('interactionCreate', interaction => {
 	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
 });
 
-client.on('rateLimit', data => webhookClient.send(`\`\`\`js\nTimeout for: ${data.timeout}\nLimit: ${data.limit}\nMethods: ${data.method}\nPath: ${data.path}\nRoute: ${data.route}\nGlobal: ${data.global}\`\`\``)
+client.on('rateLimit', data => webhookClient.send(`\`\`\`js\n
+Timeout for: ${data.timeout}\n
+Limit: ${data.limit}\n
+Methods: ${data.method}\n
+Path: ${data.path}\n
+Route: ${data.route}\n
+Global: ${data.global}\`\`\``)
               );
 client.login(process.env.DISCORD_TOKEN);
 

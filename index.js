@@ -1,7 +1,7 @@
 const { ShardingManager } = require('discord.js');
 require('dotenv').config();
 const manager = new ShardingManager('./bot.js', {  
-	totalShards:  parseInt(process.env.SHARD_NUMBER),
+	totalShards:  parseInt(process.env.SHARD_NUMBER) || "auto",
 	 token: process.env.DISCORD_TOKEN,
 	 });
 
