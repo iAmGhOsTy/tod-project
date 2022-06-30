@@ -14,7 +14,7 @@ module.exports = {
         .setAuthor("Complete the dare", client.user.displayAvatarURL())
         .setColor(client.embedColor)    
         .setDescription(`**${dares[Math.floor(Math.random() * dares.length)]}**`)
-        .setFooter(`requested by ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
         message.channel.send({embeds: [tembed]});
  }
 }

@@ -14,7 +14,7 @@ module.exports = {
         .setAuthor("Damn!!", client.user.displayAvatarURL())
         .setColor(client.embedColor)    
         .setDescription(`**${wyr[Math.floor(Math.random() * wyr.length)]}**`)
-        .setFooter(`requested by ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
         message.channel.send({embeds: [tembed]});
  }
 }

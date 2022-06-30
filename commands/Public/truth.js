@@ -14,7 +14,7 @@ module.exports = {
         .setAuthor("Answer Truthfully!!!", client.user.displayAvatarURL())
         .setColor(client.embedColor)    
         .setDescription(`**${truths[Math.floor(Math.random() * truths.length)]}**`)
-        .setFooter(`requested by ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
         message.channel.send({embeds: [tembed]});
  }
 }

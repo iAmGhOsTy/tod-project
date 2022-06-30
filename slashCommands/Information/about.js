@@ -2,7 +2,7 @@ const { MessageEmbed, CommandInteraction, Client, MessageButton, MessageActionRo
 
 module.exports = {
     name: "about",
-    description: "Show Dreamer project information",
+    description: "Show ToD project information",
 
     /**
      * 
