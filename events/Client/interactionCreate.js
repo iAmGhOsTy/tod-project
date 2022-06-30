@@ -31,7 +31,7 @@ module.exports = async (client, interaction) => {
             .setEmoji("<a:Snowflake:918072225192620052>")
             .setLabel("VOTE")
             .setStyle("LINK")
-            .setURL("https://top.gg/bot/889026555454582804/vote"),
+            .setURL("https://top.gg/bot/977584064808767518/vote"),
           )
                 return interaction.reply({embeds:[new MessageEmbed().setDescription("**Vote Me To Use This Command** ").setColor(client.config.embedColor)],components:[row]})
             }

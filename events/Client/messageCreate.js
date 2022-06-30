@@ -64,7 +64,7 @@ module.exports = async (client, message) => {
         .setEmoji("<a:Snowflake:918072225192620052>")
         .setLabel("VOTE")
         .setStyle("LINK")
-        .setURL("https://top.gg/bot/889026555454582804/vote"),
+        .setURL("https://top.gg/bot/977584064808767518/vote"),
       )
             return message.channel.send({embeds:[new MessageEmbed().setDescription("**Vote Me To Use This Command** ")],components:[row]})
         }
@@ -85,6 +85,6 @@ module.exports = async (client, message) => {
     }
     const embed2 = new MessageEmbed()
         .setColor(client.embedColor)
-        .setDescription(`Enjoying the bot, [Consider upvoting me](https://top.gg/bot/889026555454582804/vote)<:excited:900459364568137748>`);
+        .setDescription(`Enjoying the bot, [Consider upvoting me](https://top.gg/bot/977584064808767518/vote)<:excited:900459364568137748>`);
     if(Math.random() > 0.9) message.channel.send({embeds: [embed2]}).catch(o_0 => {});
   }
