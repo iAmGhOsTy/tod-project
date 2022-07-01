@@ -33,9 +33,9 @@ readdirSync("./events/Client/").forEach(file => {
  * extra event handlers
  */
 // readdirSync("./events/more/").forEach(file => {
-//     const event = require(`../events/Lavalink/${file}`);
+//     const event = require(`../events/more/${file}`);
 //     let eventName = file.split(".")[0];
-//     client.logger.log(`Loading Events Lavalink ${eventName}`, "event");
+//     client.logger.log(`Loading Events more ${eventName}`, "event");
 //     client.manager.on(eventName, event.bind(null, client));
 // });
 
