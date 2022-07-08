@@ -47,7 +47,7 @@ client.commands = new Collection();
 client.categories = readdirSync("./commands/");
 client.logger = require("./utils/logger.js");
 
-
+// HANDLER INITIATION
 require("./handler/Client")(client);
 
 client.on('interactionCreate', interaction => {
