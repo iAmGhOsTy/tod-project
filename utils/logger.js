@@ -28,7 +28,7 @@ module.exports = class Logger {
 			return console.log(`[${chalk.gray(date)}]: [${chalk.black.bgBlueBright(type.toUpperCase())}] ${content}`);
 		} 
 		case "ratelimit" :{
-			return console.log(`[${chalk.gray(date)}]: [${chalk.black.bgMagenta(type.toLocaleUpperCase())}] ${content}`)
+			return console.log(`[${chalk.gray(date)}]: [${chalk.black.bgMagenta(type.toUpperCase())}] ${content}`)
 		}
 		default: throw new TypeError("Logger type must be either warn, debug, log, ready, cmd or error.");
 		}
