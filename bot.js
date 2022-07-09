@@ -1,5 +1,4 @@
-const { Client, Collection, Intents, WebhookClient } = require("discord.js");
-const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/977787105243701338/wCFXoqfBgnwpbcoReg1HgCr38MSspArgXZb_twirIqaCFukR84ntjHutSEppMonDY7OK' });
+const { Client, Collection, Intents } = require("discord.js");
 const { readdirSync } = require("fs");
 require('dotenv').config();
 const client = new Client({
@@ -54,14 +53,14 @@ client.on('interactionCreate', interaction => {
 	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
 });
 
-client.on('rateLimit', data => webhookClient.send(`\`\`\`js\n
-Timeout for: ${data.timeout}\n
-Limit: ${data.limit}\n
-Methods: ${data.method}\n
-Path: ${data.path}\n
-Route: ${data.route}\n
-Global: ${data.global}\`\`\``)
-              );
+// client.on('rateLimit', data => webhookClient.send(`\`\`\`js\n
+// Timeout for: ${data.timeout}\n
+// Limit: ${data.limit}\n
+// Methods: ${data.method}\n
+// Path: ${data.path}\n
+// Route: ${data.route}\n
+// Global: ${data.global}\`\`\``)
+//               );
 client.login(process.env.DISCORD_TOKEN);
 
 
