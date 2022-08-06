@@ -4,8 +4,7 @@ const { readdirSync } = require("fs");
 require('dotenv').config();
 const client = new Client({
    
-   intents: [Intents.FLAGS.GUILDS, Intents.
-FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
+   intents: 1 ,
     allowedMentions: {
         parse: ["everyone", "roles", "users"],
         repliedUser: true
@@ -27,7 +26,7 @@ FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
 	// 		keepOverLimit: (/* ... */) => { /* ... */ }
 	// 	}
 	// },
-    partials: ["CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION", "USER"]
+    partials: [ "GUILD_MEMBER", "MESSAGE",  "USER"]
 
 });
 module.exports = client;
