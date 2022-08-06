@@ -21,19 +21,16 @@ module.exports = {
 		const promises = [
 			client.shard.fetchClientValues('guilds.cache.size'),
             client.shard.fetchClientValues('channels.cache.size'),
+            client.shard.fetchClientValues('commandsran'),
 			client.shard.broadcastEval(c => c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)),
 		];
 
 		return Promise.all(promises)
 			.then(results => {
 				const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
-				const totalMembers = results[2].reduce((acc, memberCount) => acc + memberCount, 0);
+				const totalMembers = results[3].reduce((acc, memberCount) => acc + memberCount, 0);
                 const totalChannels = results[1].reduce((acc, channelcount) => acc + channelcount,0);
-                const ToTalSeconds = (client.uptime / 1000);
-                const Days = Math.floor(ToTalSeconds / 86400);
-                const Hours = Math.floor(ToTalSeconds / 3600);
-                const Minutes = Math.floor(ToTalSeconds / 60);
-                const Seconds = Math.floor(ToTalSeconds % 60);
+                const totalcmdran = results[2].reduce((acc, cmdran) => acc + cmdran, 0);
 
                 const embed = new MessageEmbed();
                 embed.setColor(client.embedColor)
@@ -47,6 +44,7 @@ module.exports = {
                     {name: "**➥ DiscordJS:**", value:  `\`\`\`js\n[v${version}]\n\`\`\`` , inline: true },
                     {name: "**➥ NodeJS:**", value:  `\`\`\`js\n[${process.version}]\n\`\`\`` , inline: true },
                     {name: '**➥ Platform**', value:  `\`\`\`ini\n[${os.type}]\n\`\`\``, inline: true},
+                    {name: '**➥ Commands Used**', value:  `\`\`\`ini\n[${totalcmdran}]\n\`\`\``, inline: true},
                     {name: "**➥ Total Ram:**", value:  `\`\`\`js\n[${(os.totalmem() / 1024 / 1024).toFixed(2)}MB]\n\`\`\`` , inline: true },
                     {name: '**➥ Uptime:**', value:`\`\`\`js\n${moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]")}\n\`\`\``}
                 )

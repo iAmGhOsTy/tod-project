@@ -22,7 +22,7 @@ module.exports = {
      * @param {CommandInteraction} interaction
      */
 
-    run: async (client, interaction, prefix ) => {
+    run: async (client, interaction ) => {
         await interaction.deferReply({
           ephemeral: false
         });
@@ -35,7 +35,7 @@ module.exports = {
 
             //categories to ignore
             let ignored = [
-                "Owner"
+                "owner"
             ];
 
             const emo = {
@@ -47,9 +47,9 @@ module.exports = {
             }
 
             let ccate = [];
-           readdirSync("./commands/").forEach((dir) => {
+           readdirSync("./slashCommands/").forEach((dir) => {
                 if (ignored.includes(dir.toLowerCase())) return;
-                const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+                const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) =>
                     file.endsWith(".js")
                 );
 
@@ -64,7 +64,7 @@ module.exports = {
                 //this is how it will be created as
                 cats = {
                     name: name,
-                    value: `\`${prefix}help ${dir.toLowerCase()}\``,
+                    value: `\`/help ${dir.toLowerCase()}\``,
                     inline: true
                 }
 
@@ -75,7 +75,7 @@ module.exports = {
             //embed
             const embed = new MessageEmbed()
                 .setTitle(`Bot Commands`)
-                .setDescription(`>>> My prefix is \`${prefix}\`\nUse the menu, or use \`${prefix}help [category]\` to view commands base on their category!`)
+                .setDescription(`>>> My prefix is \`/\`\nUse the menu, or use \`/help [category]\` to view commands base on their category!`)
                 .addFields(categories)
                 .setFooter(
                     `Requested by ${interaction.member.user.username}`,
@@ -104,25 +104,25 @@ module.exports = {
 
                     let catts = [];
 
-                    readdirSync("./commands/").forEach((dir) => {
+                    readdirSync("./slashCommands/").forEach((dir) => {
                         if (dir.toLowerCase() !== value.toLowerCase()) return;
-                        const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+                        const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) =>
                             file.endsWith(".js")
                         );
 
 
                         const cmds = commands.map((command) => {
-                            let file = require(`../../commands/${dir}/${command}`); //getting the commands again
+                            let file = require(`../../slashCommands/${dir}/${command}`); //getting the commands again
 
                             if (!file.name) return "No command name.";
 
                             let name = file.name.replace(".js", "");
 
-                            if (client.commands.get(name).hidden) return;
+                            if (client.slashCommands.get(name).hidden) return;
 
 
-                            let des = client.commands.get(name).description;
-                            let emo = client.commands.get(name).emoji;
+                            let des = client.slashCommands.get(name).description;
+                            let emo = client.slashCommands.get(name).emoji;
                             let emoe = emo ? `${emo} - ` : ``;
 
                             let obj = {
@@ -152,7 +152,7 @@ module.exports = {
                     if (cots.includes(value.toLowerCase())) {
                         const combed = new MessageEmbed()
                             .setTitle(`__${value.charAt(0).toUpperCase() + value.slice(1)} Commands!__`)
-                            .setDescription(`Use \`${prefix}help\` followed by a command name to get more information on a command.\nFor example: \`${prefix}help ping\`.\n\n`)
+                            .setDescription(`Use \`/help\` followed by a command name to get more information on a command.\nFor example: \`/help ping\`.\n\n`)
                             .addFields(catts)
                             .setColor(color)
 
@@ -182,25 +182,25 @@ module.exports = {
         } else {
             let catts = [];
 
-            readdirSync("./commands/").forEach((dir) => {
-                if (dir.toLowerCase() !== args[0].toLowerCase()) return;
-                const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+            readdirSync("./slashCommands/").forEach((dir) => {
+                if (dir.toLowerCase() !== args.toLowerCase()) return;
+                const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) =>
                     file.endsWith(".js")
                 );
 
 
                 const cmds = commands.map((command) => {
-                    let file = require(`../../commands/${dir}/${command}`);
+                    let file = require(`../../slashCommands/${dir}/${command}`);
 
                     if (!file.name) return "No command name.";
 
                     let name = file.name.replace(".js", "");
 
-                    if (client.commands.get(name).hidden) return;
+                    if (client.slashCommands.get(name).hidden) return;
 
 
-                    let des = client.commands.get(name).description;
-                    let emo = client.commands.get(name).emoji;
+                    let des = client.slashCommands.get(name).description;
+                    let emo = client.slashCommands.get(name).emoji;
                     let emoe = emo ? `${emo} - ` : ``;
 
                     let obj = {
@@ -217,7 +217,7 @@ module.exports = {
                     if (co == undefined) return;
 
                     dota = {
-                        name: `${cmds.length === 0 ? "In progress." : prefix + co.cname}`,
+                        name: `${cmds.length === 0 ? "In progress." : `/` + co.cname}`,
                         value: co.des ? co.des : `No Description`,
                         inline: true,
                     }
@@ -228,15 +228,12 @@ module.exports = {
             });
 
             const command =
-                client.commands.get(args[0].toLowerCase()) ||
-                client.commands.find(
-                    (c) => c.aliases && c.aliases.includes(args[0].toLowerCase())
-                );
+                client.slashCommands.get(args.toLowerCase()) 
 
-            if (cots.includes(args[0].toLowerCase())) {
+            if (cots.includes(args.toLowerCase())) {
                 const combed = new MessageEmbed()
-                    .setTitle(`__${args[0].charAt(0).toUpperCase() + args[0].slice(1)} Commands!__`)
-                    .setDescription(`Use \`${prefix}help\` followed by a command name to get more information on a command.\nFor example: \`${prefix}help ping\`.\n\n`)
+                    .setTitle(`__${args.charAt(0).toUpperCase() + args.slice(1)} Commands!__`)
+                    .setDescription(`Use \`/help\` followed by a command name to get more information on a command.\nFor example: \`/help ping\`.\n\n`)
                     .addFields(catts)
                     .setColor(color)
 
@@ -247,7 +244,7 @@ module.exports = {
 
             if (!command) {
                 const embed = new MessageEmbed()
-                    .setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
+                    .setTitle(`Invalid command! Use \`/help\` for all of my commands!`)
                     .setColor("RED");
                 return await interaction.editReply({
                     embeds: [embed],
@@ -263,17 +260,17 @@ module.exports = {
                     "Command:",
                     command.name ? `\`${command.name}\`` : "No name for this command."
                 )
-                .addField(
-                    "Aliases:",
-                    command.aliases ?
-                    `\`${command.aliases.join("` `")}\`` :
-                    "No aliases for this command."
-                )
+                // .addField(
+                //     "Aliases:",
+                //     command.aliases ?
+                //     `\`${command.aliases.join("` `")}\`` :
+                //     "No aliases for this command."
+                // )
                 .addField(
                     "Usage:",
                     command.usage ?
-                    `\`${prefix}${command.name} ${command.usage}\`` :
-                    `\`${prefix}${command.name}\``
+                    `\`/${command.name} ${command.usage}\`` :
+                    `\`/${command.name}\``
                 )
                 .addField(
                     "Command Description:",
