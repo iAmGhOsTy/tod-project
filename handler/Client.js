@@ -44,14 +44,14 @@ readdirSync("./events/Client/").forEach(file => {
 /**
  * Import all commands
  */
-readdirSync("./commands/").forEach(dir => {
-    const commandFiles = readdirSync(`./commands/${dir}/`).filter(f => f.endsWith('.js'));
-    for (const file of commandFiles) {
-        const command = require(`../commands/${dir}/${file}`);
-        client.logger.log(`Loading ${command.category} commands ${command.name}`, "cmd");
-        client.commands.set(command.name, command);
-    }
-})
+// readdirSync("./commands/").forEach(dir => {
+//     const commandFiles = readdirSync(`./commands/${dir}/`).filter(f => f.endsWith('.js'));
+//     for (const file of commandFiles) {
+//         const command = require(`../commands/${dir}/${file}`);
+//         client.logger.log(`Loading ${command.category} commands ${command.name}`, "cmd");
+//         client.commands.set(command.name, command);
+//     }
+// })
 
 /// slashCommands
    const data = [];
