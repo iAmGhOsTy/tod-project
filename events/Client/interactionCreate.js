@@ -38,7 +38,9 @@ module.exports = async (client, interaction) => {
         }
                 
         try {
+            client.commandsran ++
             await SlashCommands.run(client, interaction, prefix);
+            client.c
         } catch (error) {
             if(interaction.replied) {
                 await interaction.editReply({
