@@ -8,6 +8,7 @@ module.exports = async (client, guild) => {
 
   const promises = [
     client.shard.fetchClientValues('guilds.cache.size'),
+    client.shard.broadcastEval(c => c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0))
   ];
   return Promise.all(promises)
   .then(results => {
@@ -22,6 +23,7 @@ module.exports = async (client, guild) => {
     .addField('Creation Date', `\`${moment.utc(guild.createdAt).format('DD/MMM/YYYY')}\``)
     .setColor("RED")
     .addField(`${client.user.username}'s Server Count`, `\`${totalGuilds}\` Severs`)
+    .addField(`${client.user.username}'s User Count`, `\`${results[1]}\` Users`)
     .setTimestamp()
     webhookClient.send({embeds:[embed]})
   }
