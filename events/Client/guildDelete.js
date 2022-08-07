@@ -1,4 +1,5 @@
 const { MessageEmbed, WebhookClient } = require('discord.js');
+const config = require('../../config.json');
 const moment = require('moment');
 
 module.exports = async (client, guild) => {
@@ -24,7 +25,7 @@ module.exports = async (client, guild) => {
     .addField(`${client.user.username}'s Server Count`, `\`${totalGuilds}\` Severs`)
     .addField(`${client.user.username}'s User Count`, `\`${results[1]}\` Users`)
     .setTimestamp()
-    webhookClient.send({embeds:[embed]})
+    webhookClient.send({embeds:[embed], username: client.user.username, avatarURL: client.user.displayAvatarURL()})
   }
   )}	
 

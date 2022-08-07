@@ -27,7 +27,7 @@ module.exports = async (client, guild) => {
     .addField(`${client.user.username}'s Server Count`, `\`${totalGuilds}\` Severs`)
     .addField(`${client.user.username}'s User Count`, `\`${totalusers}\` Users`)
     .setTimestamp()
-    webhookClient.send({embeds:[embed]})
+    webhookClient.send({embeds:[embed], username: client.user.username, avatarURL: client.user.displayAvatarURL()})
   }
   )}	
 
