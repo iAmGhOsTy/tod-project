@@ -21,9 +21,9 @@ module.exports = {
             ephemeral: false
         });
      const toreload = interaction.options.getString("cmdname");
-  if (!"798245188413816833".includes(interaction.member.id)) {
-     return;
-  };
+     if (!client.owner.includes(interaction.member.id)) {
+      return interaction.editReply({content:"nu", ephemeral:true});
+      };
 
       let reload = false;
       for (let i = 0; i < client.categories.length; i += 1) {
