@@ -21,16 +21,16 @@ module.exports = {
             ephemeral: false
         });
      const toreload = interaction.options.getString("cmdname");
-     if (!client.owner.includes(interaction.member.id)) {
-      return interaction.editReply({content:"nu", ephemeral:true});
-      };
+  if (!"798245188413816833".includes(interaction.member.id)) {
+     return;
+  };
 
       let reload = false;
       for (let i = 0; i < client.categories.length; i += 1) {
         let dir = client.categories[i];
         try {
           delete require.cache[require.resolve(`../../slashCommands/${dir}/${toreload}.js`)] // 
-          client.commands.delete(toreload)
+          client.slashCommands.delete(toreload)
           const pull = require(`../../slashCommands/${dir}/${toreload}.js`)
           client.slashCommands.set(toreload, pull)
           reload = true;
