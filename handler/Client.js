@@ -29,15 +29,16 @@ readdirSync("./events/Client/").forEach(file => {
     client.on(eventName, event.bind(null, client));
 });
 
-/**
- * extra event handlers
+
+ /**
+ * Shard Events
  */
-// readdirSync("./events/more/").forEach(file => {
-//     const event = require(`../events/more/${file}`);
-//     let eventName = file.split(".")[0];
-//     client.logger.log(`Loading Events more ${eventName}`, "event");
-//     client.manager.on(eventName, event.bind(null, client));
-// });
+readdirSync("./events/Shard/").forEach(file => {
+    const event = require(`../events/Shard/${file}`);
+    let eventName = file.split(".")[0];
+    client.logger.log(`Loading SHARD EVENTS ${eventName}`, "event");
+    client.on(eventName, event.bind(null, client));
+});
 
 
 
