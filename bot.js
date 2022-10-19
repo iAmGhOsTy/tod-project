@@ -57,6 +57,9 @@ client.commandsran = 0;
 // HANDLER INITIATION
 require("./handler/Client")(client);
 
+// MEMORY SWEEPER
+require("./handler/MemorySweeper")(client);
+
 client.on('interactionCreate', interaction => {
 	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
 });
