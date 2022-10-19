@@ -53,7 +53,7 @@ module.exports = async (client) => {
 
         const embed = new MessageEmbed()
             .setTitle(`Shard ${client.shard.ids} | Memory Sweeper`)
-            .setColor("AQUA")
+            .setColor(client.embedColor)
             .setDescription(`**Cache sweeped:**\n` +
                 `Guild Members: \`${guildMembers}\`\n` +
                 `Users: \`${users}\`\n` +
