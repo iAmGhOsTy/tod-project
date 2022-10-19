@@ -1,4 +1,13 @@
 module.exports = {
+
+
+    formatBytes: function (bytes) {    
+        if (bytes === 0) return '0 Bytes';
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(1024));
+        return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(2))} ${sizes[i]}`;
+    },
+    
     convertTime: function (duration) {
 
         var milliseconds = parseInt((duration % 1000) / 100),
@@ -55,5 +64,9 @@ module.exports = {
             const a = hms.split(':')
             return hms = (((+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2])) * 1000)
         }
-    }
+    },
+    coolnum: function (input) {
+        return input.toLocaleString("en-US") 
+       }
+
 }
