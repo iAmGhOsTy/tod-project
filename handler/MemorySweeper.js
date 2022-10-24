@@ -64,7 +64,7 @@ module.exports = async (client) => {
             .addField('Memory Usage:', `\`${formatBytes(process.memoryUsage().heapUsed)}\``, true);
 
         memoryLogger.send({
-            embeds: [embed]
+            embeds: [embed], username :`TOD Sweeper` , avatarURL:"https://cdn.discordapp.com/avatars/977584064808767518/a41df11c8c75c9b6b8d5c55274c50239.png?size=4096"
         }).catch(() => null);
-    }, 60000 * 1)
+    }, 60000 * 15)
 }
