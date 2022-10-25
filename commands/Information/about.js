@@ -22,7 +22,7 @@ module.exports = {
     .setEmoji("<:git:900460439836721173> ")
     .setLabel("GitHub")
     .setStyle("LINK")
-    .setURL("https://github.com/iAmGhosty"),
+    .setURL("https://github.com/iAmGhOsTy"),
     new MessageButton()
     .setEmoji("<:staff:900459948398493747> ")
     .setLabel("Support")
