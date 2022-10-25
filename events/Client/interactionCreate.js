@@ -6,6 +6,8 @@ module.exports = async (client, interaction) => {
  if(interaction.isButton()){
      if(interaction.customId == 'DELETE_BUT' && interaction.user.id == `${client.owner}`) {
             interaction.message.delete();
+     } else {
+        return interaction.reply({embeds:[new MessageEmbed().setDescription("Cant Use This Man!").setColor("RED")], ephemeral: true})
      };
      
 
