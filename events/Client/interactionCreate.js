@@ -56,6 +56,11 @@ module.exports = async (client, interaction) => {
             }
             console.error(error);
         };
+        const embed2 = new MessageEmbed()
+        .setColor(client.embedColor)
+        .setDescription(`Enjoying the bot, [Consider upvoting me](https://top.gg/bot/889026555454582804/vote)\n
+        If you have suggestions, join the [Support Server](https://discord.gg/sb2TMUsJQH)`);
+    if(Math.random() > 0.7) interaction.channel.send({embeds: [embed2]}).catch(o_0 => {});
     } else return;
     // if (interaction.isAutocomplete()) {
     //     if (interaction.commandName === "nhie") {
