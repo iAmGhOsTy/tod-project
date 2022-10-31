@@ -3,13 +3,13 @@ const { MessageEmbed, CommandInteraction, Client } = require("discord.js")
 module.exports = {
     name: "nhie",
     description: "never have i ever",
-    options:[
+    options: [
         {
             name: "type",
             description: "maturity of the question",
             type: "STRING",
             required: false,
-            choices:[
+            choices: [
                 {
                     name: "NSFW",
                     value: "nsfw"
@@ -40,23 +40,23 @@ module.exports = {
 
         let ctg = interaction.options.getString("type") || "normal";
         let nhies = require("../../raw/nhie.json").find(e => e.type.toLowerCase().includes(ctg.toLowerCase()));
-        if(!nhies) return interaction.followUp({
+        if (!nhies) return interaction.followUp({
             embeds: [new MessageEmbed()
-            .setColor(client.embedColor)
-            .setDescription(`No such category!`)]
+                .setColor(client.embedColor)
+                .setDescription(`No such category!`)]
         });
-        if((nhies.type == "nsfw") && !interaction.channel.nsfw) return interaction.followUp({
+        if ((nhies.type == "nsfw") && !interaction.channel.nsfw) return interaction.followUp({
             embeds: [new MessageEmbed()
-            .setColor(client.embedColor)
-            .setDescription(`This channel is not NSFW! 🔞`)]
+                .setColor(client.embedColor)
+                .setDescription(`This channel is not NSFW! 🔞`)]
         });
         interaction.followUp({
             embeds: [new MessageEmbed()
-            .setAuthor("Never have I-", client.user.displayAvatarURL())
-            .setDescription(`** Never have I ever ${nhies.item[Math.floor(Math.random() * nhies.item.length)]}**`)
-            .setFooter(`Requested by :${interaction.member.user.username} || Type: ${nhies.type}`)
-            .setColor(client.embedColor)]
+                .setAuthor("Never have I-", client.user.displayAvatarURL())
+                .setDescription(`** Never have I ever ${nhies.item[Math.floor(Math.random() * nhies.item.length)]}**`)
+                .setFooter(`Requested by :${interaction.member.user.username} || Type: ${nhies.type}`)
+                .setColor(client.embedColor)]
         });
-        
+
     }
 }

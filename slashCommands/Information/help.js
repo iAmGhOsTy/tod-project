@@ -9,26 +9,26 @@ module.exports = {
     description: "Return all commands, or one specific command",
     owner: false,
     options: [
-      {
-        name: "command",
-        description: "the full name of command",
-        required: false,
-        type: "STRING"
-		}
-	],
+        {
+            name: "command",
+            description: "the full name of command",
+            required: false,
+            type: "STRING"
+        }
+    ],
 
     /**
      * @param {Client} client
      * @param {CommandInteraction} interaction
      */
 
-    run: async (client, interaction ) => {
+    run: async (client, interaction) => {
         await interaction.deferReply({
-          ephemeral: false
+            ephemeral: false
         });
-    const args = interaction.options.getString("command");
-     let color = client.embedColor;
-      let categories = [];
+        const args = interaction.options.getString("command");
+        let color = client.embedColor;
+        let categories = [];
         let cots = [];
 
         if (!args) {
@@ -40,14 +40,14 @@ module.exports = {
 
             const emo = {
 
-        Config: "<:staff:900459948398493747> ",
-        Information: "<a:loading2:920544921352564746>",
-        Public: "<a:dancemusic:920546770994487317>",
-        Owner: "<a:a_crown:920548323377676298>" 
+                Config: "<:staff:900459948398493747> ",
+                Information: "<a:loading2:920544921352564746>",
+                Public: "<a:dancemusic:920546770994487317>",
+                Owner: "<a:a_crown:920548323377676298>"
             }
 
             let ccate = [];
-           readdirSync("./slashCommands/").forEach((dir) => {
+            readdirSync("./slashCommands/").forEach((dir) => {
                 if (ignored.includes(dir.toLowerCase())) return;
                 const commands = readdirSync(`./slashCommands/${dir}/`).filter((file) =>
                     file.endsWith(".js")
@@ -56,7 +56,7 @@ module.exports = {
                 if (ignored.includes(dir.toLowerCase())) return;
 
                 const name = `${emo[dir]} - ${dir}`;
-                
+
                 let nome = dir.toUpperCase();
 
                 let cats = new Object();
@@ -228,7 +228,7 @@ module.exports = {
             });
 
             const command =
-                client.slashCommands.get(args.toLowerCase()) 
+                client.slashCommands.get(args.toLowerCase())
 
             if (cots.includes(args.toLowerCase())) {
                 const combed = new MessageEmbed()
@@ -254,8 +254,8 @@ module.exports = {
                 });
             }
 
-            const embed = new MessageEmbed() 
-              .setTitle("Command Details:")
+            const embed = new MessageEmbed()
+                .setTitle("Command Details:")
                 .addField(
                     "Command:",
                     command.name ? `\`${command.name}\`` : "No name for this command."
@@ -269,20 +269,20 @@ module.exports = {
                 .addField(
                     "Usage:",
                     command.usage ?
-                    `\`/${command.name} ${command.usage}\`` :
-                    `\`/${command.name}\``
+                        `\`/${command.name} ${command.usage}\`` :
+                        `\`/${command.name}\``
                 )
                 .addField(
                     "Command Description:",
                     command.description ?
-                    command.description :
-                    "No description for this command."
+                        command.description :
+                        "No description for this command."
                 )
                 .setFooter(
-                        `Requested by ${interaction.member.user.username}`,
-                        interaction.member.user.displayAvatarURL({
-                          dynamic: true
-                        })
+                    `Requested by ${interaction.member.user.username}`,
+                    interaction.member.user.displayAvatarURL({
+                        dynamic: true
+                    })
                 )
                 .setTimestamp()
                 .setColor(color);

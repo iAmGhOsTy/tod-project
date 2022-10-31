@@ -5,32 +5,32 @@ require('dotenv').config();
 
 
 const client = new Client({
-    
-   
+
+
     intents: 1,//[Intents.FLAGS.GUILDS,Intents.FLAGS.GUILD_MESSAGES],
-            allowedMentions: {
-                parse: ["everyone", "roles", "users"],
-                repliedUser: true
-            },
-// DEPRICATED
+    allowedMentions: {
+        parse: ["everyone", "roles", "users"],
+        repliedUser: true
+    },
+    // DEPRICATED
     // messageCacheMaxSize: 10,
     // messageCacheLifetime: 30 * 60,
     // messageSweepInterval: 5 * 60,
-//
+    //
     sweepers: {
-		messages: {
-			maximumSize: 200,
-			interval: 2*100,
-			lifetime: 5*100,
-		},
-		threads: {
+        messages: {
+            maximumSize: 200,
+            interval: 2 * 100,
+            lifetime: 5 * 100,
+        },
+        threads: {
             maximumSize: 100,
-			interval: 5*100,
-            lifetime: 5*100,
-			keepOverLimit: (/* ... */) => { /* ... */ }
-		}
+            interval: 5 * 100,
+            lifetime: 5 * 100,
+            keepOverLimit: (/* ... */) => { /* ... */ }
+        }
 
-	},
+    },
     partials: ["CHANNEL", "GUILD_MEMBER", "USER"]
 
 });
@@ -61,7 +61,7 @@ require("./handler/Client")(client);
 require("./handler/MemorySweeper")(client);
 
 client.on('interactionCreate', interaction => {
-	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
+    console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
 });
 
 client.on('rateLimit', data => webhookClient.send(`\`\`\`js\n
@@ -71,7 +71,7 @@ Methods: ${data.method}\n
 Path: ${data.path}\n
 Route: ${data.route}\n
 Global: ${data.global}\`\`\``)
-              )
+)
 
 client.login(process.env.DISCORD_TOKEN);
 
