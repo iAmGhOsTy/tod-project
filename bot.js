@@ -61,7 +61,7 @@ require("./handler/Client")(client);
 require("./handler/MemorySweeper")(client);
 
 client.on('interactionCreate', interaction => {
-    console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
+    console.log(`${interaction.user.tag} in #${interaction.channel.name} used ${interaction.commandName}.`);
 });
 
 client.on('rateLimit', data => webhookClient.send(`\`\`\`js\n
