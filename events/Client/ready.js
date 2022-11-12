@@ -5,7 +5,7 @@ module.exports = async (client) => {
 
   //  client.manager.init(client.user.id);
     client.logger.log(`${client.user.username} online!`, "ready");
-    client.logger.log(`Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`, "ready");
+    client.logger.log(`Ready on ${client.guilds.cache.size} servers`, "ready");
 
     let statuses = ['/truth', `/help`];
     setInterval(function() {
