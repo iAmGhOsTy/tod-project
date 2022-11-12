@@ -3,7 +3,7 @@ const config = require('../../config.json');
 const moment = require('moment');
 
 module.exports = async (client, guild) => {
-  const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/977786723306180608/DGEpMKnZwLR9ddMxYSOh8k0ci_yzOTNE-QWbfBXRJu3ge5DKBQC94Uix7W4-F8oJnBny' });
+  const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/1041029301245595739/FHNQHEIpJBd2ao28VTbKWFlmg40GPLRrdEWDz5Jqm1lh0aopYbiP4D-WtKAyJuqICjbQ' });
   let own = await guild.fetchOwner()
 
   const promises = [
