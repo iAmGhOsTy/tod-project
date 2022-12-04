@@ -1,4 +1,4 @@
-const { CommandInteraction, Client } = require("discord.js")
+const { CommandInteraction, Client,MessageActionRow, MessageButton } = require("discord.js")
 const { exec } = require('child_process');
 module.exports = {
     name: "exec",
@@ -21,6 +21,11 @@ module.exports = {
         await interaction.deferReply({
             ephemeral: false
         });
+        const row = new MessageActionRow()
+        .addComponents(new MessageButton()
+ .setLabel("DELETE")
+ .setCustomId('DELETE_BUT')
+ .setStyle("DANGER"));
         const args = interaction.options.getString("exec");
 
         if (!client.owner.includes(interaction.member.id)) {
@@ -28,9 +33,9 @@ module.exports = {
             };
             exec(args, (error, stdout) => {
                 if (error) {
-                    interaction.followUp(`\`ERROR\`\n\`\`\`js\n${error}\n\`\`\``);
+                    interaction.followUp({content:`\`ERROR\`\n\`\`\`js\n${error}\n\`\`\``,components: [row]});
                 } else {
-                    interaction.followUp(`\`OUTPUT\`\n\`\`\`js\n${stdout}\n\`\`\``);
+                    interaction.followUp({content:`\`OUTPUT\`\n\`\`\`js\n${stdout}\n\`\`\``,components: [row]});
                 }
             });
                         
