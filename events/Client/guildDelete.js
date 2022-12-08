@@ -13,6 +13,7 @@ module.exports = async (client, guild) => {
   return Promise.all(promises)
   .then(results => {
     const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+    const totalusers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
     const embed = new MessageEmbed()
     .setThumbnail(guild.iconURL({ dynamic: true, size: 1024}))
     .setTitle(`:outbox_tray: Left a Guild !!`)
@@ -23,7 +24,7 @@ module.exports = async (client, guild) => {
     .addField('Creation Date', `\`${moment.utc(guild.createdAt).format('DD/MMM/YYYY')}\``)
     .setColor("RED")
     .addField(`${client.user.username}'s Server Count`, `\`${totalGuilds}\` Severs`)
-    .addField(`${client.user.username}'s User Count`, `\`${results[1]}\` Users`)
+    .addField(`${client.user.username}'s User Count`, `\`${totalusers}\` Users`)
     .setTimestamp()
     webhookClient.send({embeds:[embed], username: client.user.username, avatarURL: client.user.displayAvatarURL()})
   }
