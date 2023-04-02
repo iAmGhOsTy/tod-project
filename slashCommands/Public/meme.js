@@ -22,16 +22,10 @@ module.exports = {
           interaction.followUp({
             embeds:[new MessageEmbed()
             .setTitle(json.memes.title)
-            .setImage(json.memes.url)]
-            .setfooter(`Upvotes: ${json.memes.upvotes}`)
+            .setImage(json.memes.url)
+            .setColor(client.embedColor)
+            .setFooter({text:"Upvotes: " + json.memes.upvotes})]
           })
-        });
-        // const eb = new MessageEmbed()
-        // .setAuthor("Answer Truthfully!!!", client.user.displayAvatarURL())
-        // .setColor(client.embedColor)    
-        // .setDescription(`**${truths[Math.floor(Math.random() * truths.length)]}**`)
-        // .setFooter(`Requested by ${interaction.member.user.username}`, interaction.member.displayAvatarURL())
-        // interaction.followUp({embeds: [tembed]});
-        
+        });       
     }
 }
