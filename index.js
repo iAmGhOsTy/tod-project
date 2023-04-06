@@ -9,5 +9,7 @@ const manager = new ShardingManager('./bot.js', {
 manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
 
 manager.spawn()
-	.catch(console.error);
+.then(() => console.log('Shards have been spawned successfully.'))
+  .catch((err) => console.error(`Error while spawning shards: ${err}`));
+	
 
