@@ -16,7 +16,12 @@ module.exports = {
         await interaction.deferReply({
             ephemeral: false
         });
-        fetch('http://194.60.87.120:4076/memes')
+        fetch('http://194.60.87.120:4076/memes',{
+          method: 'GET',
+          headers: {
+            "x-api-key": "AbCd"
+          }
+        })
         .then(res => res.json())
         .then(json => {
           interaction.followUp({
