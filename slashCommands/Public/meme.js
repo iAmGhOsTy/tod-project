@@ -16,7 +16,7 @@ module.exports = {
         await interaction.deferReply({
             ephemeral: false
         });
-        fetch('http://194.60.87.120:4076/memes',{
+        fetch('https://iamghosty.me/memes',{
           method: 'GET',
           headers: {
             "x-api-key": "AbCd"
