@@ -13,7 +13,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "index.js"
+    "start": "index.js",
+    "register": "node register.js"
   },
   "author": "GHOSTY",
   "license": "ISC",

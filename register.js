@@ -3,6 +3,7 @@
 const { REST, Routes } = require('discord.js');
 const { readdirSync } = require('node:fs');
 const path = require('node:path');
+const logger = require("./utils/logger.js")
 require("dotenv").config()
 
 const commands = []
@@ -16,7 +17,7 @@ const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
 	try {
-		console.log('[Discord API] Started refreshing application (/) commands.');
+		logger.log('[Discord API] Started refreshing application (/) commands.', 'ready');
 		await rest.put(
             // GUILD SLASH COMMANDS (will deploy only in the server you put the ID of)
 			// Routes.applicationGuildCommands(config.botID, 'ID_OF_THE_GUILD'),
