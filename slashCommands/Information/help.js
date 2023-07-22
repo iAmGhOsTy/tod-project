@@ -255,7 +255,7 @@ module.exports = {
 
       const embed = new EmbedBuilder()
         .setTitle("Command Details:")
-        .addField(
+        .addFields(
           {
             name: "Command:",
             value: command.name
