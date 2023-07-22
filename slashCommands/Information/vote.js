@@ -23,7 +23,7 @@ module.exports = {
           .setURL("https://top.gg/bot/977584064808767518/vote"),
         )
       const mainPage = new EmbedBuilder()
-      .setAuthor({ name: `${client.user.name}`, iconURL: client.user.displayAvatarURL() })
+      .setAuthor({ name: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
       .setDescription('**Click below to vote me!<a:Tree:918072227025539092>**')
       .setColor(client.embedColor)
         await interaction.followUp({embeds: [mainPage], components: [row]});

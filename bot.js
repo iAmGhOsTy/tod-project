@@ -56,9 +56,9 @@ client.commandsran = 0;
 require("./handler/Client")(client);
 
 
-client.on('interactionCreate', interaction => {
-	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
-});
+// client.on('interactionCreate', interaction => {
+// 	console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
+// });
 
 client.rest.on('rateLimit', data => webhookClient.send({ content: `\`\`\`js\n
 Timeout for: ${data.timeout}\n

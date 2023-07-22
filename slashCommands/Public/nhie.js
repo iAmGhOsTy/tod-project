@@ -54,7 +54,7 @@ module.exports = {
             embeds: [new EmbedBuilder()
                 .setAuthor({ name: `Never Have I-`, iconURL: client.user.displayAvatarURL() })
             .setDescription(`** Never have I ever ${nhies.item[Math.floor(Math.random() * nhies.item.length)]}**`)
-            .setFooter({ text: `Requested by ${interaction.user.username} || Type: ${nhies.type}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+            .setFooter({ text: `Requested by ${interaction.user.username} `, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setColor(client.embedColor)]
         });
         

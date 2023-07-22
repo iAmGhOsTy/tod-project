@@ -34,7 +34,7 @@ module.exports = {
 			);
 
       const mainPage = new EmbedBuilder()
-      .setAuthor({ name: `${client.user.name}`, iconURL: client.user.displayAvatarURL() })
+      .setAuthor({ name: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
       .setThumbnail(client.user.displayAvatarURL())
             .setColor('#303236')
             .setDescription("Hello, I am <@977584064808767518>, providing you with fun truths, dares, nhie, wyr questions. Add me in your server to know more.")
