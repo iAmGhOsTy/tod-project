@@ -4,7 +4,7 @@ module.exports = async (client) => {
 
     client.logger.log(`${client.user.username} online!`, "ready");
     client.logger.log(`Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`, "ready");
-    client.logger.log(`DONT FORGET TO UNCOMMENT THE // IN HANDLER`, `warn`)
+    
 
     let statuses = ['v14', `v14`];
     setInterval(function() {
