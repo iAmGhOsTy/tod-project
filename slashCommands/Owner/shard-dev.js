@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, inlineCode } = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
 module.exports = {
@@ -36,10 +36,10 @@ module.exports = {
                     results.map((data) => {
                       i += 1, ser += data[1], mem += data[2], ch += data[3], ram += parseInt(data[4]), ping += data[6], cran += data[7];
                 
-                    em.addField(`<:green:869855270883438613> Shard ${data[0]}`+`${data[0] === client.shard.ids ? `*` : ` `}`, `\`\`\`js\nServers: ${data[1]}\nUsers: ${data[2]}\nChannels: ${data[3]}\nTotal Commands Ran: ${data[7]}\nRam: ${data[4]}mb\nPing: ${data[5]}ms\nUptime: ${moment.duration(data[6]).format("D[d] H[h] m[m] s[s]")}\`\`\``, true)
+                    em.addFields({name:`<:green:869855270883438613> Shard ${data[0]}`+`${data[0] === client.shard.ids ? `*` : ` `}`,value: `\`\`\`js\nServers: ${data[1]}\nUsers: ${data[2]}\nChannels: ${data[3]}\nTotal Commands Ran: ${data[7]}\nRam: ${data[4]}mb\nPing: ${data[5]}ms\nUptime: ${moment.duration(data[6]).format("D[d] H[h] m[m] s[s]")}\`\`\``,inline: true})
                     });
                     
-                    em.addField(`Total Stats`, `\`\`\`js\nTotal Servers: ${ser}\nTotal Users: ${mem}\nTotal Channels: ${ch}\nTotal Ram: ${ram}mb\nTotal cmds ran: ${cran}\`\`\``)
+                    em.addFields({name:`Total Stats`, value:`\`\`\`js\nTotal Servers: ${ser}\nTotal Users: ${mem}\nTotal Channels: ${ch}\nTotal Ram: ${ram}mb\nTotal cmds ran: ${cran}\`\`\``})
                     interaction.followUp({embeds: [em]})
                     })  
    }

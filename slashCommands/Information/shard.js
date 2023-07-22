@@ -18,8 +18,8 @@ module.exports = {
         const duration1 = Math.round((Date.now() - client.uptime)/1000);
         const x = new EmbedBuilder()
         .setTitle(`**Shard Info**`)
-        .addField('Shard ID', `\`\`\`yml\n${interaction.guild.shard.id}`+ `/` + `${client.shard.count}\`\`\``, false)
-        .addField('Guild ID', `\`\`\`yml\n${interaction.guildId}\`\`\``, false)
+        .addFields({name:'Shard ID', value:`\`\`\`yml\n${interaction.guild.shard.id}`+ `/` + `${client.shard.count}\`\`\``,inline: false})
+        .addFields({name:'Guild ID',value: `\`\`\`yml\n${interaction.guildId}\`\`\``, inline:false})
         .setDescription(`Last restart: <t:${duration1}:R>`)
         .setColor(client.config.embedColor)
         .setFooter({text: `This server is in shard#${interaction.guild.shardId}`})

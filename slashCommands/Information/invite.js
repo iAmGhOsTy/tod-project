@@ -38,7 +38,7 @@ new ButtonBuilder()
           .setAuthor({ name: `${client.user.name}`, iconURL: client.user.displayAvatarURL() })
           .setThumbnail(client.user.displayAvatarURL())
              .setColor('#303236')
-            .addField('invite me', `[Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=378944&scope=applications.commands%20bot)`, true)
+            .addFields({name:'invite me',value: `[Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=378944&scope=applications.commands%20bot)`, inline:true})
            await interaction.followUp({embeds: [mainPage], components: [row]})
     }
 }

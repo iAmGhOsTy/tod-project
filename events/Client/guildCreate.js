@@ -1,4 +1,4 @@
-const { MessageEmbed, WebhookClient } = require('discord.js');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
 const moment = require('moment');
 
 module.exports = async (client, guild) => {
@@ -15,17 +15,17 @@ module.exports = async (client, guild) => {
     
     const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
     const totalusers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
     .setThumbnail(guild.iconURL({ dynamic: true, size: 1024}))
     .setTitle(`📥 Joined a Guild !!`)
-    .addField('Name', `\`${guild.name}\``)
-    .addField('ID', `\`${guild.id}\``)
-    .addField('Owner', `\`${guild.members.cache.get(own.id) ? guild.members.cache.get(own.id).user.tag : "Unknown user"}\` ${own.id}\``)
-    .addField('Member Count', `\`${guild.memberCount}\` Members`)
-    .addField('Creation Date', `\`${moment.utc(guild.createdAt).format('DD/MMM/YYYY')}\``)
+    .addFields({name:'Name',value: `\`${guild.name}\``})
+    .addFields({name:'ID',value: `\`${guild.id}\``})
+    .addFields({name:'Owner', value:`\`${guild.members.cache.get(own.id) ? guild.members.cache.get(own.id).user.tag : "Unknown user"}\` ${own.id}\``})
+    .addFields({name:'Member Count',value: `\`${guild.memberCount}\` Members`})
+    .addFields({name:'Creation Date',value: `\`${moment.utc(guild.createdAt).format('DD/MMM/YYYY')}\``})
     .setColor("GREEN")
-    .addField(`${client.user.username}'s Server Count`, `\`${totalGuilds}\` Severs`)
-    .addField(`${client.user.username}'s User Count`, `\`${totalusers}\` Users`)
+    .addFields({name:`${client.user.username}'s Server Count`,value: `\`${totalGuilds}\` Severs`})
+    .addFields({name:`${client.user.username}'s User Count`,value: `\`${totalusers}\` Users`})
     .setTimestamp()
     webhookClient.send({embeds:[embed], username: client.user.username, avatarURL: client.user.displayAvatarURL()})
   }
