@@ -26,7 +26,7 @@ const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
 			Routes.applicationCommands(process.env.CLIENT_ID),
 			{ body: commands },
 		);
-		console.log('[Discord API] Successfully reloaded application (/) commands.');
+		logger.log('[Discord API] Successfully reloaded application (/) commands.');
 	} catch (error) {
 		console.error(error);
 	}
