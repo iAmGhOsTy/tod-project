@@ -35,7 +35,7 @@ module.exports = {
                     .setColor("#2F3136")    
                     .setDescription(`This server is currently on **Shard ${interaction.guild.shardId}** Of **Cluster ${client.cluster.id}**`)
                     results.map((data) => {
-                      i += 1, ser += data[1], mem += data[2], ch += data[3], ram += parseInt(data[4]), ping += data[6], cran += data[7];
+                      i += 1, ser += data[1], mem += data[2], ch += data[3], ram += parseInt(data[4]), ping += data[6].toFixed(3), cran += data[7];
                 
                     em.addFields({name:`<:green:869855270883438613> Cluster ${data[0]}`+`${data[0] === client.cluster.id ? `*` : ` `}`,value: `\`\`\`js\nShards: ${data[8]}\nServers: ${data[1]}\nUsers: ${data[2]}\nChannels: ${data[3]}\nTotal Commands Ran: ${data[7]}\nRam: ${data[4]}mb\nPing: ${data[5]}ms\nUptime: ${moment.duration(data[6]).format("D[d] H[h] m[m] s[s]")}\`\`\``,inline: true})
                     });
