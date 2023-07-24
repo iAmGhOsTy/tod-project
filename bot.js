@@ -1,5 +1,5 @@
 const { Client, Collection, WebhookClient } = require("discord.js");
-const webhookClient = new WebhookClient({ url: `${process.env.webhook_token}` });
+const webhookClient = new WebhookClient({ url: `${process.env.ratelimit_webhook_token}` });
 const { ClusterClient, getInfo } = require('discord-hybrid-sharding');
 const { readdirSync } = require("fs");
 
