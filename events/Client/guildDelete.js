@@ -6,8 +6,8 @@ module.exports = async (client, guild) => {
   let own = await guild?.fetchOwner()
 
   const promises = [
-    client.shard.fetchClientValues('guilds.cache.size'),
-    client.shard.broadcastEval(c => c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0))
+    client.cluster.fetchClientValues('guilds.cache.size'),
+    client.cluster.broadcastEval(c => c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0))
   ];
   return Promise.all(promises)
   .then(results => {
