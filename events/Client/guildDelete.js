@@ -20,7 +20,7 @@ module.exports = async (client, guild) => {
     .addFields({name:'Owner', value:`\`${guild.members.cache.get(own.id) ? guild.members.cache.get(own.id).user.tag : "Unknown user"}\` ${own.id}\``})
     .addFields({name:'Member Count',value: `\`${guild.memberCount}\` Members`})
     .addFields({name:'Creation Date',value: `\`${moment.utc(guild.createdAt).format('DD/MMM/YYYY')}\``})
-    .setColor("GREEN")
+    .setColor(15548997)
     .addFields({name:`${client.user.username}'s Server Count`,value: `\`${totalGuilds}\` Severs`})
     .addFields({name:`${client.user.username}'s User Count`,value: `\`${totalusers}\` Users`})
     .setTimestamp()
