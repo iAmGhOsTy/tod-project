@@ -12,6 +12,7 @@ module.exports = async (client, guild) => {
   return Promise.all(promises)
   .then(results => {
     const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+    const totalusers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
     const embed = new EmbedBuilder()
     .setThumbnail(guild.iconURL({ dynamic: true, size: 1024}))
     .setTitle(`:outbox_tray: Left a Guild !!`)
