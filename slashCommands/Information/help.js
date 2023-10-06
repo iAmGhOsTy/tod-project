@@ -244,7 +244,7 @@ module.exports = {
       if (!command) {
         const embed = new EmbedBuilder()
           .setTitle(`Invalid command! Use \`/help\` for all of my commands!`)
-          .setColor("RED");
+          .setColor(15548997);
         return await interaction.editReply({
           embeds: [embed],
           allowedMentions: {
