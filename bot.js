@@ -41,8 +41,8 @@ const client = new Client({
 module.exports = client;
 
 //TOPGG INTEGRATION
-// const Topgg = require("@top-gg/sdk")
-// client.topgg = new Topgg.Api(process.env.topggtoken);
+const Topgg = require("@top-gg/sdk")
+client.topgg = new Topgg.Api(process.env.topggtoken);
 
 
 client.slashCommands = new Collection();
