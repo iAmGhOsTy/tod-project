@@ -6,7 +6,7 @@ module.exports = async (client) => {
     client.logger.log(`Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`, "ready");
     
 
-    let statuses = ['v14', `v14`];
+    let statuses = ['truths', `dares`];
     setInterval(function() {
   		let status = statuses[Math.floor(Math.random()*statuses.length)];
   		client.user.setActivity(status, {type: Activity.WATCHING});
