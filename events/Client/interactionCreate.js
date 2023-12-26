@@ -11,7 +11,7 @@ if (interaction.customId === "dare") {
     await interaction.deferUpdate();
     const dares = require('../../raw/dares.json');
     const dareBut = new ButtonBuilder().setCustomId("dare").setLabel("Dare").setStyle("Primary")
-    const truthBut = new ButtonBuilder().setCustomId("truth").setLabel("Truth").setStyle("Secondary")
+    const truthBut = new ButtonBuilder().setCustomId("truth").setLabel("Truth").setStyle("Danger")
     const nhieBut = new ButtonBuilder().setCustomId("nhie").setLabel("Never Have I Ever").setStyle("Success")
     const row = new ActionRowBuilder().addComponents([dareBut,truthBut,nhieBut])
     const tembed = new EmbedBuilder()
