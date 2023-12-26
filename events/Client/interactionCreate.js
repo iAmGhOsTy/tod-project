@@ -1,4 +1,4 @@
-const { InteractionType,Client,CommandInteraction,ButtonBuilder,ActionRowBuilder } = require("discord.js")
+const { InteractionType,Client,CommandInteraction,ButtonBuilder,ActionRowBuilder,EmbedBuilder } = require("discord.js")
 module.exports = async (client, interaction) => {
      /**
  * 
