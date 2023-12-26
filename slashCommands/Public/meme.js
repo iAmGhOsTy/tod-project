@@ -1,4 +1,4 @@
-const { MessageEmbed, CommandInteraction, Client } = require("discord.js")
+const { EmbedBuilder, CommandInteraction, Client } = require("discord.js")
 const fetch = require('node-fetch')
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
         await interaction.deferReply({
             ephemeral: false
         });
-        fetch('https://iamghosty.me/memes',{
+        fetch('http://dono-03.danbot.host:2176/memes',{
           method: 'GET',
           headers: {
             "x-api-key": "AbCd"
@@ -25,7 +25,7 @@ module.exports = {
         .then(res => res.json())
         .then(json => {
           interaction.followUp({
-            embeds:[new MessageEmbed()
+            embeds:[new EmbedBuilder()
             .setTitle(json.memes.title)
             .setImage(json.memes.url)
             .setColor(client.embedColor)
