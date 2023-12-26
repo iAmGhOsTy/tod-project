@@ -1,4 +1,4 @@
-const { EmbedBuilder, CommandInteraction, Client,ApplicationCommandOptionType } = require("discord.js");
+const { EmbedBuilder, CommandInteraction, Client,ApplicationCommandOptionType,ButtonBuilder,ActionRowBuilder } = require("discord.js");
 
 module.exports = {
     name: "nhie",
@@ -39,6 +39,10 @@ module.exports = {
         });
 
         let ctg = interaction.options.getString("type") || "normal";
+        const dareBut = new ButtonBuilder().setCustomId("dare").setLabel("Dare").setStyle("Primary")
+        const truthBut = new ButtonBuilder().setCustomId("truth").setLabel("Truth").setStyle("Secondary")
+        const nhieBut = new ButtonBuilder().setCustomId("nhie").setLabel("Never Have I Ever").setStyle("Success")
+        const row = new ActionRowBuilder().addComponents([dareBut,truthBut,nhieBut])
         let nhies = require("../../raw/nhie.json").find(e => e.type.toLowerCase().includes(ctg.toLowerCase()));
         if(!nhies) return interaction.followUp({
             embeds: [new EmbedBuilder()
@@ -55,7 +59,8 @@ module.exports = {
                 .setAuthor({ name: `Never Have I-`, iconURL: client.user.displayAvatarURL() })
             .setDescription(`** Never have I ever ${nhies.item[Math.floor(Math.random() * nhies.item.length)]}**`)
             .setFooter({ text: `Requested by ${interaction.user.username} `, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-            .setColor(client.embedColor)]
+            .setColor(client.embedColor)],
+            components: [row]
         });
         
     }
