@@ -1,8 +1,8 @@
-const { MessageEmbed, WebhookClient } = require('discord.js');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
 const webhookClient = new WebhookClient({ url: `${process.env.shard_hook}` });
 module.exports = async (client,id, replayedEvents) => {
     client.logger.log(`Shard ${id} resumed with ${replayedEvents} replayed events`, "shard");
-    webhookClient.send({embeds:[new MessageEmbed()
+    webhookClient.send({embeds:[new EmbedBuilder()
         .setTitle(`Shard ${id} resumed...`)
         .setColor("BLACK")
         .setDescription(`Resumed with ${replayedEvents} replayed events`)],

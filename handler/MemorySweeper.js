@@ -1,4 +1,4 @@
-const {SnowflakeUtil,MessageEmbed,WebhookClient} = require('discord.js');
+const {SnowflakeUtil,EmbedBuilder,WebhookClient} = require('discord.js');
 const {formatBytes} = require('../utils/convert.js');
 const memoryLogger = new WebhookClient({
     url: process.env.memoryLogger
@@ -51,7 +51,7 @@ module.exports = async (client) => {
             users++;
         }
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`Shard ${client.shard.ids} | Memory Sweeper`)
             .setColor(client.embedColor)
             .setDescription(`**Cache sweeped:**\n` +
