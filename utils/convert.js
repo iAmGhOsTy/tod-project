@@ -9,6 +9,7 @@ module.exports = {
         hours = (hours < 10) ? "0" + hours : hours;
         minutes = (minutes < 10) ? "0" + minutes : minutes;
         seconds = (seconds < 10) ? "0" + seconds : seconds;
+        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
    
         if (duration < 3600000) {
           return minutes + ":" + seconds ;
@@ -16,6 +17,14 @@ module.exports = {
           return hours + ":" + minutes + ":" + seconds ;
         }
     },
+
+    formatBytes: function (bytes) {    
+        if (bytes === 0) return '0 Bytes';
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(1024));
+        return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(2))} ${sizes[i]}`;
+    },
+
     convertNumber: function (number, decPlaces) {
        
         decPlaces = Math.pow(10,decPlaces);
