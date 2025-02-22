@@ -57,6 +57,9 @@ module.exports = async (client, interaction) => {
         await interaction.editReply({components: []});
         client.commandsran ++;
     }
+    if (interaction.customId === "DELETE_BUT"){
+        await interaction.message.delete();
+    }
 
      if(interaction.type === InteractionType.ApplicationCommand) {
 
