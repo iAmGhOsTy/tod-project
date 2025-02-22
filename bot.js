@@ -59,7 +59,7 @@ client.commandsran = 0;
 require("./handler/Client")(client);
 
 // MEMORY SWEEPER
-require("./handler/MemorySweeper")(client);
+//require("./handler/MemorySweeper")(client);
 
 
 // client.on('interactionCreate', interaction => {

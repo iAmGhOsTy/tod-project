@@ -26,7 +26,7 @@ module.exports = async (client) => {
                         try {
                             const cmdPath = path.resolve(__dirname, "../../slashCommands", dir.name, cmd);
                             delete require.cache[require.resolve(cmdPath)]; 
-                            client.slashCommands.delete(cmd); s
+                            client.slashCommands.delete(cmd); 
 
                             const pull = require(cmdPath);
                             client.slashCommands.set(cmd, pull);
