@@ -8,7 +8,7 @@ const manager = new ClusterManager(`${__dirname}/bot.js`, {
     //shardsPerClusters: 3,
     totalClusters: 1,
     mode: 'process', // you can also choose "worker"
-    token: process.env.DISCORD_TOKEN_BETA,
+    token: process.env.DISCORD_TOKEN,
 });
 
 manager.on('clusterCreate', cluster => console.log(`Launched Cluster ${cluster.id}`));
