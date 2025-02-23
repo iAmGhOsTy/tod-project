@@ -16,20 +16,21 @@ module.exports = {
         await interaction.deferReply({
             ephemeral: false
         });
-        fetch('http://dono-03.danbot.host:2176/memes',{
+        fetch('https://meme-api.com/gimme',{
           method: 'GET',
-          headers: {
-            "x-api-key": "AbCd"
-          }
+          // headers: {
+          //   "x-api-key": "AbCd"
+          // }
         })
         .then(res => res.json())
         .then(json => {
+          
           interaction.followUp({
             embeds:[new EmbedBuilder()
-            .setTitle(json.memes.title)
-            .setImage(json.memes.url)
+            .setTitle(json.title)
+            .setImage(json.url)
             .setColor(client.embedColor)
-            .setFooter({text:"Upvotes: " + json.memes.upvotes})]
+            .setFooter({text:"Upvotes: " + json.ups})]
           })
         });       
     }
